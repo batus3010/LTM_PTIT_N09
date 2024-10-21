@@ -146,7 +146,7 @@ public class HomeView extends javax.swing.JFrame {
         });
 
         infoUserScore.setFont(new java.awt.Font("Comic Sans MS", 3, 18)); // NOI18N
-        infoUserScore.setForeground(new java.awt.Color(255, 255, 255));
+        infoUserScore.setForeground(new java.awt.Color(237, 183, 34));
         infoUserScore.setText("Score");
 
         btnLogout.setBackground(new java.awt.Color(255, 51, 0));
@@ -203,7 +203,7 @@ public class HomeView extends javax.swing.JFrame {
                     .addComponent(btnGetInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnRefresh, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
         BackgroundLayout.setVerticalGroup(
             BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
