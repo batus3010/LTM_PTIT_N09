@@ -39,7 +39,7 @@ public class ServerView extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Server is running...");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("D:\\Download\\LTM_PTIT_N09-main\\LTM_PTIT_N09-main\\btlltm-tcp-server\\src\\picture\\running cat.png")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/running cat.png"))); // NOI18N
         jLabel2.setText("jLabel2");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);

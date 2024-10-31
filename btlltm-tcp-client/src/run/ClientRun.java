@@ -3,6 +3,7 @@ package run;
 import controller.SocketHandler;
 import view.ConnectServer;
 import view.GameView;
+import view.GameViewCards;
 import view.HomeView;
 import view.InfoPlayerView;
 import view.LoginView;
@@ -10,6 +11,7 @@ import view.MessageView;
 import view.RegisterView;
 
 public class ClientRun {
+
     public enum SceneName {
         CONNECTSERVER,
         LOGIN,
@@ -17,7 +19,8 @@ public class ClientRun {
         HOMEVIEW,
         INFOPLAYER,
         MESSAGEVIEW,
-        GAMEVIEW
+        GAMEVIEW,
+        GAMEVIEWCARDS
     }
 
     // scenes
@@ -28,10 +31,11 @@ public class ClientRun {
     public static GameView gameView;
     public static InfoPlayerView infoPlayerView;
     public static MessageView messageView;
+    public static GameViewCards gameViewCards;
 
     // controller 
     public static SocketHandler socketHandler;
-    
+
     static {
         socketHandler = new SocketHandler();
     }
@@ -52,6 +56,7 @@ public class ClientRun {
         infoPlayerView = new InfoPlayerView();
         messageView = new MessageView();
         gameView = new GameView();
+        gameViewCards = new GameViewCards();
     }
 
     public static void openScene(SceneName sceneName) {
@@ -85,6 +90,10 @@ public class ClientRun {
                     gameView = new GameView();
                     gameView.setVisible(true);
                     break;
+                case GAMEVIEWCARDS:
+                    gameViewCards = new GameViewCards();
+                    gameViewCards.setVisible(true);
+                    break;
                 default:
                     break;
             }
@@ -115,6 +124,10 @@ public class ClientRun {
                 case GAMEVIEW:
                     gameView.dispose();
                     break;
+
+                case GAMEVIEWCARDS:
+                    gameViewCards.dispose();
+                    break;
                 default:
                     break;
             }
@@ -129,6 +142,7 @@ public class ClientRun {
         infoPlayerView.dispose();
         messageView.dispose();
         gameView.dispose();
+        gameViewCards.dispose();
     }
 
     public static void main(String[] args) {
