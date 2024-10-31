@@ -4,6 +4,7 @@
  */
 package view;
 
+<<<<<<< HEAD
 import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.GridLayout;
@@ -19,12 +20,15 @@ import javax.swing.JRadioButton;
 import javax.swing.Timer;
 import run.ClientRun;
 
+=======
+>>>>>>> f1e9fbdb59f849b3b121ab505216a9fa313f679e
 /**
  *
  * @author DELL
  */
 public class GameViewCards extends javax.swing.JFrame {
 
+<<<<<<< HEAD
     String competitor = "";
 
     private int[] selectedCards = new int[3];
@@ -32,11 +36,14 @@ public class GameViewCards extends javax.swing.JFrame {
     private int maxSelections = 3;
     private int currentSelections = 0;
 
+=======
+>>>>>>> f1e9fbdb59f849b3b121ab505216a9fa313f679e
     /**
      * Creates new form GameViewCards
      */
     public GameViewCards() {
         initComponents();
+<<<<<<< HEAD
 
         // close window event
         this.addWindowListener(new java.awt.event.WindowAdapter() {
@@ -154,6 +161,8 @@ public class GameViewCards extends javax.swing.JFrame {
             // Exit the game
             System.exit(0);
         }
+=======
+>>>>>>> f1e9fbdb59f849b3b121ab505216a9fa313f679e
     }
 
     /**
@@ -303,11 +312,14 @@ public class GameViewCards extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Leave Game");
+<<<<<<< HEAD
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+=======
+>>>>>>> f1e9fbdb59f849b3b121ab505216a9fa313f679e
 
         jButton3.setBackground(new java.awt.Color(66, 107, 85));
         jButton3.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
@@ -385,7 +397,10 @@ public class GameViewCards extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f1e9fbdb59f849b3b121ab505216a9fa313f679e
     private void btnCard2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCard2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCard2ActionPerformed
@@ -396,6 +411,7 @@ public class GameViewCards extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
 
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -407,6 +423,10 @@ public class GameViewCards extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+=======
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+>>>>>>> f1e9fbdb59f849b3b121ab505216a9fa313f679e
     /**
      * @param args the command line arguments
      */

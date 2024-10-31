@@ -339,9 +339,12 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Leave Game"/>
           </Properties>
+<<<<<<< HEAD
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
           </Events>
+=======
+>>>>>>> f1e9fbdb59f849b3b121ab505216a9fa313f679e
         </Component>
         <Component class="javax.swing.JButton" name="jButton3">
           <Properties>
