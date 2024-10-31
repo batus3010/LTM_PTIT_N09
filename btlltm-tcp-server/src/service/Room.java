@@ -41,7 +41,7 @@ public class Room {
     public void startGame() {
         gameStarted = true;
         
-        matchTimer = new CountDownTimer(31);
+        matchTimer = new CountDownTimer(60);
         matchTimer.setTimerCallBack(
             null,
             (Callable) () -> {
