@@ -78,7 +78,6 @@ public class GameViewCards extends javax.swing.JFrame {
             } else {
                 currentSelections--;
             }
-            System.out.println("Current selection: " + currentSelections);
         }
     };
     
@@ -102,8 +101,8 @@ public class GameViewCards extends javax.swing.JFrame {
 
     public void setWaitingRoom() {
         // Disable submit and leave buttons
-        jButton3.setEnabled(false);
-        jButton2.setEnabled(false);
+        btnSubmit.setEnabled(false);
+        btnLeave.setEnabled(false);
 
         // Show waiting message
         JLabel waitingLabel = new JLabel("Waiting for other players...");
@@ -123,8 +122,8 @@ public class GameViewCards extends javax.swing.JFrame {
 
     public void setStartGame() {
         // Enable submit and leave buttons
-        jButton3.setEnabled(true);
-        jButton2.setEnabled(true);
+        btnSubmit.setEnabled(true);
+        btnLeave.setEnabled(true);
 
 //        // Reset the Cards panel
 //        Cards.removeAll();
@@ -159,7 +158,7 @@ public class GameViewCards extends javax.swing.JFrame {
 
     public void afterSubmit() {
         // Disable submit button
-        jButton3.setEnabled(false);
+        btnSubmit.setEnabled(false);
 
         // Show waiting message
         JLabel waitingLabel = new JLabel("Waiting for result...");
@@ -221,8 +220,8 @@ public class GameViewCards extends javax.swing.JFrame {
         btnCard8 = new javax.swing.JRadioButton();
         btnCard9 = new javax.swing.JRadioButton();
         btnCard10 = new javax.swing.JRadioButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnLeave = new javax.swing.JButton();
+        btnSubmit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jProgressBar1 = new javax.swing.JProgressBar();
@@ -344,23 +343,23 @@ public class GameViewCards extends javax.swing.JFrame {
                 .addGap(20, 20, 20))
         );
 
-        jButton2.setBackground(new java.awt.Color(255, 51, 0));
-        jButton2.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Leave Game");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnLeave.setBackground(new java.awt.Color(255, 51, 0));
+        btnLeave.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        btnLeave.setForeground(new java.awt.Color(255, 255, 255));
+        btnLeave.setText("Leave Game");
+        btnLeave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnLeaveActionPerformed(evt);
             }
         });
 
-        jButton3.setBackground(new java.awt.Color(66, 107, 85));
-        jButton3.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("Submit");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnSubmit.setBackground(new java.awt.Color(66, 107, 85));
+        btnSubmit.setFont(new java.awt.Font("Comic Sans MS", 1, 14)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(255, 255, 255));
+        btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnSubmitActionPerformed(evt);
             }
         });
 
@@ -397,13 +396,13 @@ public class GameViewCards extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton3))
+                        .addComponent(btnSubmit))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
                         .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 406, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnStart))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton2))
+                        .addComponent(btnLeave))
                     .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Cards, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(84, 84, 84))
@@ -414,7 +413,7 @@ public class GameViewCards extends javax.swing.JFrame {
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(BackgroundLayout.createSequentialGroup()
                         .addGap(40, 40, 40)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnLeave, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, BackgroundLayout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -428,7 +427,7 @@ public class GameViewCards extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(BackgroundLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(32, 32, 32))
         );
 
@@ -456,18 +455,18 @@ public class GameViewCards extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCard7ActionPerformed
     
     // submit button
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
 
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnSubmitActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnLeaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeaveActionPerformed
         if (JOptionPane.showConfirmDialog(GameViewCards.this, "Are you sure want to leave game? You will lose?", "LEAVE GAME", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION) {
             ClientRun.socketHandler.leaveGame(competitor);
             ClientRun.socketHandler.setRoomIdPresent(null);
             dispose();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnLeaveActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         // TODO add your handling code here:
@@ -523,9 +522,9 @@ public class GameViewCards extends javax.swing.JFrame {
     private javax.swing.JRadioButton btnCard7;
     private javax.swing.JRadioButton btnCard8;
     private javax.swing.JRadioButton btnCard9;
+    private javax.swing.JButton btnLeave;
     private javax.swing.JButton btnStart;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnSubmit;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JProgressBar jProgressBar1;
