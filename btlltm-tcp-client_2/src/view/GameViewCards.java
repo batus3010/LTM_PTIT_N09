@@ -32,12 +32,22 @@ public class GameViewCards extends javax.swing.JFrame {
     private int maxSelections = 3;
     private int currentSelections = 0;
 
+    
     /**
      * Creates new form GameViewCards
      */
     public GameViewCards() {
         initComponents();
-
+        btnCard1.addActionListener(radioButtonListener);
+        btnCard2.addActionListener(radioButtonListener);
+        btnCard3.addActionListener(radioButtonListener);
+        btnCard4.addActionListener(radioButtonListener);
+        btnCard5.addActionListener(radioButtonListener);
+        btnCard6.addActionListener(radioButtonListener);
+        btnCard7.addActionListener(radioButtonListener);
+        btnCard8.addActionListener(radioButtonListener);
+        btnCard9.addActionListener(radioButtonListener);
+        btnCard10.addActionListener(radioButtonListener);
         // close window event
         this.addWindowListener(new java.awt.event.WindowAdapter() {
             @Override
@@ -49,6 +59,38 @@ public class GameViewCards extends javax.swing.JFrame {
                 }
             }
         });
+    }
+    
+    private ActionListener radioButtonListener = new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent evt) {
+            JRadioButton button = (JRadioButton) evt.getSource();
+            if (button.isSelected()) {
+                currentSelections++;
+                if (currentSelections == maxSelections) {
+                    showNotification();
+                }
+                else if(currentSelections > maxSelections)
+                {
+                    showNotificationMaxCardsSelected();
+                    button.setSelected(false);
+                }
+            } else {
+                currentSelections--;
+            }
+            System.out.println("Current selection: " + currentSelections);
+        }
+    };
+    
+    private void showNotification() {
+        JOptionPane.showMessageDialog(this, "You've selected 3 cards! Please wait for the result. Or click [Submit] to end game faster!", "Notification", JOptionPane.INFORMATION_MESSAGE);
+        
+    }
+    
+    private void showNotificationMaxCardsSelected()
+    {
+        JOptionPane.showMessageDialog(this, "You can only select 3 cards!", "Notification", JOptionPane.INFORMATION_MESSAGE);
+        currentSelections--;
     }
 
     public void setInfoPlayer(String username) {
