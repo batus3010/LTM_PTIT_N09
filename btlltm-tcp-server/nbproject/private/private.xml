@@ -2,6 +2,12 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/D:/PTIT/PTIT%20Learning%20mats/Year_4_Sem_1/LapTrinhMang/test/LTM_PTIT_N09/btlltm-tcp-server/src/service/RoomManager.java</file>
+            <file>file:/D:/PTIT/PTIT%20Learning%20mats/Year_4_Sem_1/LapTrinhMang/test/LTM_PTIT_N09/btlltm-tcp-server/src/service/Client.java</file>
+            <file>file:/D:/PTIT/PTIT%20Learning%20mats/Year_4_Sem_1/LapTrinhMang/test/LTM_PTIT_N09/btlltm-tcp-server/src/service/ClientManager.java</file>
+            <file>file:/D:/PTIT/PTIT%20Learning%20mats/Year_4_Sem_1/LapTrinhMang/test/LTM_PTIT_N09/btlltm-tcp-server/src/service/Server.java</file>
+            <file>file:/D:/PTIT/PTIT%20Learning%20mats/Year_4_Sem_1/LapTrinhMang/test/LTM_PTIT_N09/btlltm-tcp-server/src/service/Room.java</file>
+        </group>
     </open-files>
 </project-private>
