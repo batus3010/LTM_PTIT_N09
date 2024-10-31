@@ -269,8 +269,11 @@ public class Room {
     public void userLeaveGame (String username) throws SQLException {
         if (client1.getLoginUser().equals(username)) {
             client2Win(0);
+            matchTimer.pause();
+            
         } else if (client2.getLoginUser().equals(username)) {
             client1Win(0);
+            matchTimer.pause();
         }
     }
     
