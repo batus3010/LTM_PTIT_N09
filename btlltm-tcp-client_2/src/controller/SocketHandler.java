@@ -8,6 +8,9 @@ import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -247,17 +250,70 @@ public class SocketHandler {
 //            ClientRun.gameView.afterSubmit();
 //        }
 //    }
-    
-    public void submitResult(String competitor)
-    {
-        
+    public void submitResult(String competitor) {
+        // Initialize a deck of 52 cards
+        String[] suits = {"Hearts", "Diamonds", "Clubs", "Spades"};
+        String[] ranks = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace"};
+
+        List<String> deck = new ArrayList<>();
+
+        // Populate the deck with all combinations of ranks and suits
+        for (String suit : suits) {
+            for (String rank : ranks) {
+                deck.add(rank + " of " + suit);
+            }
+        }
+
+        // Shuffle the deck
+        Collections.shuffle(deck);
+        // Initialize total value for selected cards
+        int totalValue = 0;
+        StringBuilder selectedCardsData = new StringBuilder("Selected cards: ");
+
+        // Select and process 3 random cards
+        for (int i = 0; i < 3; i++) {
+            String card = deck.get(i);
+            String rank = card.split(" ")[0]; // Extract the rank
+
+            // Determine the card's value
+            int value;
+            switch (rank) {
+                case "Ace":
+                    value = 1;
+                    break;
+                case "Jack":
+                    value = 11;
+                    break;
+                case "Queen":
+                    value = 12;
+                    break;
+                case "King":
+                    value = 13;
+                    break;
+                default:
+                    value = Integer.parseInt(rank);
+                    break;
+            }
+
+            totalValue += value; // Accumulate total value
+            selectedCardsData.append(card).append(", ");
+        }
+
+        // Remove trailing comma and space
+        if (selectedCardsData.length() > 0) {
+            selectedCardsData.setLength(selectedCardsData.length() - 2);
+        }
+
+        // Prepare data to be sent
+        String data = selectedCardsData + "; Total value: " + totalValue;
+
+        // Send the formatted result data
+        sendData("SUBMIT_RESULT;" + loginUser + ";" + competitor + ";" + roomIdPresent + ";" + data);
+
+        // Print the total value of the selected cards
+        //System.out.println("SUBMIT_RESULT;" + loginUser + ";" + competitor + ";" + roomIdPresent + ";" + data);
     }
-    
-    private int calculatePlayerScore()
-    {
-        int score = 0;
-        return score;
-    }
+
 
     public void acceptPlayAgain() {
         sendData("ASK_PLAY_AGAIN;YES;" + loginUser);
@@ -497,7 +553,7 @@ public class SocketHandler {
             String userInvited = splitted[3];
             roomIdPresent = splitted[4];
             ClientRun.openScene(ClientRun.SceneName.GAMEVIEWCARDS);
-            ClientRun.gameViewCards.setInfoPlayer(userInvited); 
+            ClientRun.gameViewCards.setInfoPlayer(userInvited);
             //ClientRun.gameViewCards.setStartGame(); 
         }
     }
@@ -578,19 +634,15 @@ public class SocketHandler {
 //            ClientRun.gameView.setStartGame(30);
 //        }
 //    }
-    
-    private void onReceiveStartGame(String received)
-    {
+    private void onReceiveStartGame(String received) {
         String[] splitted = received.split(";");
         String status = splitted[1];
-        if(status.equals("success"))
-        {
+        if (status.equals("success")) {
             ClientRun.gameViewCards.setStartGame();
+        } else {
+            // Handle failure case
+            JOptionPane.showMessageDialog(ClientRun.homeView, "Failed to start the game.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-        else {
-        // Handle failure case
-        JOptionPane.showMessageDialog(ClientRun.homeView, "Failed to start the game.", "Error", JOptionPane.ERROR_MESSAGE);
-    }
     }
 
     private void onReceiveResultGame(String received) {

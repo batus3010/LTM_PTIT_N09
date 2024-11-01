@@ -11,6 +11,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -32,7 +33,6 @@ public class GameViewCards extends javax.swing.JFrame {
     private int maxSelections = 3;
     private int currentSelections = 0;
 
-    
     /**
      * Creates new form GameViewCards
      */
@@ -60,7 +60,7 @@ public class GameViewCards extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private ActionListener radioButtonListener = new ActionListener() {
         @Override
         public void actionPerformed(ActionEvent evt) {
@@ -69,9 +69,7 @@ public class GameViewCards extends javax.swing.JFrame {
                 currentSelections++;
                 if (currentSelections == maxSelections) {
                     showNotification();
-                }
-                else if(currentSelections > maxSelections)
-                {
+                } else if (currentSelections > maxSelections) {
                     showNotificationMaxCardsSelected();
                     button.setSelected(false);
                 }
@@ -80,14 +78,13 @@ public class GameViewCards extends javax.swing.JFrame {
             }
         }
     };
-    
+
     private void showNotification() {
         JOptionPane.showMessageDialog(this, "You've selected 3 cards! Please wait for the result. Or click [Submit] to end game faster!", "Notification", JOptionPane.INFORMATION_MESSAGE);
-        
+
     }
-    
-    private void showNotificationMaxCardsSelected()
-    {
+
+    private void showNotificationMaxCardsSelected() {
         JOptionPane.showMessageDialog(this, "You can only select 3 cards!", "Notification", JOptionPane.INFORMATION_MESSAGE);
         currentSelections--;
     }
@@ -96,8 +93,6 @@ public class GameViewCards extends javax.swing.JFrame {
         competitor = username;
         jLabel1.setText("Playing against: " + username);
     }
-    
-    
 
     public void setWaitingRoom() {
         // Disable submit and leave buttons
@@ -134,7 +129,6 @@ public class GameViewCards extends javax.swing.JFrame {
 //            btn.setVisible(true);
 //            btn.setEnabled(true);
 //        });
-
         // Initialize progress bar
         jProgressBar1.setStringPainted(true);
         jProgressBar1.setString("Time Remaining: ");
@@ -453,11 +447,11 @@ public class GameViewCards extends javax.swing.JFrame {
     private void btnCard7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCard7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnCard7ActionPerformed
-    
+
     // submit button
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        // TODO add your handling code here:
 
+        ClientRun.socketHandler.submitResult(competitor);
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnLeaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLeaveActionPerformed
