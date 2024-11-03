@@ -27,9 +27,6 @@ import run.ClientRun;
 public class GameViewCards extends javax.swing.JFrame {
 
     String competitor = "";
-
-    private int[] selectedCards = new int[3];
-    private boolean[] cardsSelected = new boolean[10];
     private int maxSelections = 3;
     private int currentSelections = 0;
 
@@ -180,6 +177,10 @@ public class GameViewCards extends javax.swing.JFrame {
         }
 
         return selectedButtons.toArray(new String[0]);
+    }
+
+    public void showMessage(String msg) {
+        JOptionPane.showMessageDialog(this, msg);
     }
 
     private void showAskPlayAgain() {

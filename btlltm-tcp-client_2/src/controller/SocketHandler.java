@@ -307,13 +307,15 @@ public class SocketHandler {
         // Prepare data to be sent
         String data = selectedCardsData + "; Total value: " + totalValue;
 
+        // Show the selected cards and total value in a message dialog
+        ClientRun.gameViewCards.showMessage(selectedCardsData + "\nTotal value: " + totalValue);
+
         // Send the formatted result data
         sendData("SUBMIT_RESULT;" + loginUser + ";" + competitor + ";" + roomIdPresent + ";" + data);
 
         // Print the total value of the selected cards
         //System.out.println("SUBMIT_RESULT;" + loginUser + ";" + competitor + ";" + roomIdPresent + ";" + data);
     }
-
 
     public void acceptPlayAgain() {
         sendData("ASK_PLAY_AGAIN;YES;" + loginUser);
@@ -655,13 +657,16 @@ public class SocketHandler {
         String roomId = splitted[5];
 
         if (status.equals("success")) {
-            ClientRun.gameView.setWaitingRoom();
+            //ClientRun.gameView.setWaitingRoom();
             if (result.equals("DRAW")) {
-                ClientRun.gameView.showAskPlayAgain("The game is draw. Do you want to play continue?");
+                //ClientRun.gameView.showAskPlayAgain("The game is draw. Do you want to play continue?");
+                ClientRun.gameViewCards.showMessage("It's a tie, both player get + 0.5 point");
             } else if (result.equals(loginUser)) {
-                ClientRun.gameView.showAskPlayAgain("You win. Do you want to play continue?");
+                //ClientRun.gameView.showAskPlayAgain("You win. Do you want to play continue?");
+                ClientRun.gameViewCards.showMessage("You win, plus 1 point for you!");
             } else {
-                ClientRun.gameView.showAskPlayAgain("You lose. Do you want to play continue?");
+//                ClientRun.gameView.showAskPlayAgain("You lose. Do you want to play continue?");
+                ClientRun.gameViewCards.showMessage("You lose, you get nothing :<");
             }
         }
     }
