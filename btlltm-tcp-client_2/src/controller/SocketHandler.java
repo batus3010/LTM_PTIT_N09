@@ -305,7 +305,7 @@ public class SocketHandler {
         }
 
         // Prepare data to be sent
-        String data = selectedCardsData + "; Total value: " + totalValue;
+        String data = selectedCardsData + ";" + totalValue;
 
         // Show the selected cards and total value in a message dialog
         ClientRun.gameViewCards.showMessage(selectedCardsData + "\nTotal value: " + totalValue);
