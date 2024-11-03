@@ -182,6 +182,8 @@ public class GameViewCards extends javax.swing.JFrame {
     public void showMessage(String msg) {
         JOptionPane.showMessageDialog(this, msg);
     }
+    
+    
 
     private void showAskPlayAgain() {
         int result = JOptionPane.showConfirmDialog(this, "Do you want to play again?", "PLAY AGAIN", JOptionPane.YES_NO_OPTION);

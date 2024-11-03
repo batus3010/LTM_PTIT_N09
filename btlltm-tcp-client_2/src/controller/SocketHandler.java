@@ -669,6 +669,7 @@ public class SocketHandler {
                 ClientRun.gameViewCards.showMessage("You lose, you get nothing :<");
             }
         }
+        ClientRun.closeScene(ClientRun.SceneName.GAMEVIEWCARDS);
     }
 
     private void onReceiveAskPlayAgain(String received) {

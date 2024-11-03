@@ -419,6 +419,9 @@ public class Client implements Runnable {
                     + ";" + joinedRoom.getClient1().getLoginUser() + ";" + joinedRoom.getClient2().getLoginUser() + ";" + joinedRoom.getId();
             System.out.println(data);
             joinedRoom.broadcast(data);
+            joinedRoom.deleteRoom();
+            System.out.println("Successfully disposed room.");
+            
         }
 
     }
