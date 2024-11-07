@@ -3,6 +3,7 @@ package controller;
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Type;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -15,7 +16,13 @@ import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import Model.Ranking;
 import run.ClientRun;
+import run.ServerRun;
+import view.RankView;
 
 public class SocketHandler {
 
@@ -132,6 +139,9 @@ public class SocketHandler {
                     case "ASK_PLAY_AGAIN":
                         onReceiveAskPlayAgain(received);
                         break;
+                    case "GET_RANKINGS":
+                        onReceiveGetRankings(received);;
+                        break;
 
                     case "EXIT":
                         running = false;
@@ -179,6 +189,10 @@ public class SocketHandler {
     public void logout() {
         this.loginUser = null;
         sendData("LOGOUT");
+    }
+
+    public void getRankingApp() {
+        sendData("GET_RANKINGS");
     }
 
     public void close() {
@@ -671,6 +685,18 @@ public class SocketHandler {
         }
     }
 
+    //todo
+    private void onReceiveGetRankings(String received) {
+        String[] splitted = received.split(";");
+        String rankList = splitted[1];
+
+        Type rankingType = new TypeToken<List<Ranking>>() {}.getType();
+        List<Ranking> rankingList = new Gson().fromJson(rankList, rankingType);
+        RankView rankView = new RankView();
+        rankView.setVisible(true);
+        rankView.setDataToTable(rankingList);
+    }
+
     private void onReceiveAskPlayAgain(String received) {
         // get status from data
         String[] splitted = received.split(";");
@@ -720,5 +746,7 @@ public class SocketHandler {
     public void setScore(float score) {
         this.score = score;
     }
+
+
 
 }

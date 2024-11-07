@@ -26,6 +26,7 @@ public class Client implements Runnable {
     DataInputStream dis;
     DataOutputStream dos;
 
+    float score = 0;
     String loginUser;
     Client cCompetitor;
     
@@ -114,6 +115,9 @@ public class Client implements Runnable {
                     case "ASK_PLAY_AGAIN":
                         onReceiveAskPlayAgain(received);
                         break;
+                    case "GET_RANKINGS":
+                        onReceiveGetRankings();;
+                        break;
                         
                     case "EXIT":
                         running = false;
@@ -193,6 +197,12 @@ public class Client implements Runnable {
         // send result
         String msg = "GET_LIST_ONLINE" + ";" + result;
         ServerRun.clientManager.broadcast(msg);
+    }
+
+
+    private void onReceiveGetRankings() {
+        String result = ServerRun.clientManager.getRanking();
+        sendData("GET_RANKINGS;" + result);
     }
     
     private void onReceiveGetInfoUser(String received) {
@@ -490,6 +500,12 @@ public class Client implements Runnable {
     public void setJoinedRoom(Room joinedRoom) {
         this.joinedRoom = joinedRoom;
     }
-    
-    
+
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
+    }
 }

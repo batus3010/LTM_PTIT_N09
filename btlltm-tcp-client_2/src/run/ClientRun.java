@@ -1,14 +1,7 @@
 package run;
 
 import controller.SocketHandler;
-import view.ConnectServer;
-import view.GameView;
-import view.GameViewCards;
-import view.HomeView;
-import view.InfoPlayerView;
-import view.LoginView;
-import view.MessageView;
-import view.RegisterView;
+import view.*;
 
 public class ClientRun {
 
@@ -20,7 +13,8 @@ public class ClientRun {
         INFOPLAYER,
         MESSAGEVIEW,
         GAMEVIEW,
-        GAMEVIEWCARDS
+        GAMEVIEWCARDS,
+        RANKING
     }
 
     // scenes
@@ -32,6 +26,7 @@ public class ClientRun {
     public static InfoPlayerView infoPlayerView;
     public static MessageView messageView;
     public static GameViewCards gameViewCards;
+    public static RankView rankView;
 
     // controller 
     public static SocketHandler socketHandler;
@@ -57,6 +52,7 @@ public class ClientRun {
         messageView = new MessageView();
         gameView = new GameView();
         gameViewCards = new GameViewCards();
+        rankView = new RankView();
     }
 
     public static void openScene(SceneName sceneName) {
@@ -95,6 +91,10 @@ public class ClientRun {
                     gameViewCards.setLocationRelativeTo(null);
                     gameViewCards.setVisible(true);
                     break;
+                case RANKING:
+                    rankView = new RankView();
+                    rankView.setVisible(true);
+                    break;
                 default:
                     break;
             }
@@ -129,6 +129,9 @@ public class ClientRun {
                 case GAMEVIEWCARDS:
                     gameViewCards.dispose();
                     break;
+                case RANKING:
+                    rankView.dispose();
+                    break;
                 default:
                     break;
             }
@@ -144,6 +147,7 @@ public class ClientRun {
         messageView.dispose();
         gameView.dispose();
         gameViewCards.dispose();
+        rankView.dispose();
     }
 
     public static void main(String[] args) {
